@@ -9,6 +9,8 @@ import com.blumonpay.BlumonPayTest.exceptions.NoInformationFoundException;
 public abstract class IGenericCrud<T, ID> {
 
 	protected abstract IGenericDao<T, ID> getRepo();
+	protected abstract void validateEntityToSave(T t);
+	protected abstract void validateEntityToUpdate(T t);
 	
 	
 	public List<T> list(){
@@ -22,10 +24,12 @@ public abstract class IGenericCrud<T, ID> {
 	}
 	
 	public T save(T t) {
+		validateEntityToSave(t);
 		return getRepo().save(t);
 	}
 	
 	public T update(T t, ID id) {
+		validateEntityToUpdate(t);
 		findById(id);
 		return getRepo().save(t);
 	}

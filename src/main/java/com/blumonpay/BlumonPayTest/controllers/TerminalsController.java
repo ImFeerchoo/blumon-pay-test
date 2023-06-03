@@ -44,6 +44,7 @@ public class TerminalsController {
 	
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Terminal> update(@PathVariable("id") Long id, @RequestBody Terminal terminal){
+		System.out.println(terminal);
 		return ResponseEntity.status(HttpStatus.CREATED).body(terminalsService.update(terminal, id));
 	}
 	
