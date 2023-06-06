@@ -14,8 +14,8 @@ public abstract class IGenericCrud<T, ID> {
 	
 	
 	public List<T> list(){
-		List<T> response = getRepo().findAll();
-		if(response.isEmpty()) throw new NoInformationFoundException("There ain't elements");
+//		List<T> response = getRepo().findAll();
+//		if(response.isEmpty()) throw new NoInformationFoundException("There ain't elements");
 		return getRepo().findAll();
 	}
 	

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<!--<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}" />-->
+<link th:href="@{/css/bootstrap-select.min.css}" rel="stylesheet" />
+<!--<link th:href="@{/css/menu_css.css}" rel="stylesheet" />
+<link th:href="@{/css/styles.css}" rel="stylesheet" />
+<link th:href="@{/css/dataTables.bootstrap5.min.css}" rel="stylesheet" />
+<link th:rel="stylesheet" th:href="@{/css/date-picker-css/bootstrap-datepicker.css}"/>
+<link th:rel="stylesheet" th:href="@{/css/date-picker-css/bootstrap-datepicker.standalone.css}"/>
+<link th:href="@{/css/treeview.css}" rel="stylesheet" />
+<link th:href="@{/css/spinner.css}" rel="stylesheet" />
+<script type="text/javascript" th:src="@{/js/menu.js}"></script>-->
+
+<!-- default header name is X-CSRF-TOKEN -->
+<!--<meta id="_csrf" name="_csrf" th:content="${_csrf.token}" />-->
+<!--<meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}" />-->
+
+<!--<link rel="shortcut icon" href="http://www.portalcomisiones.telcel.com/Portal-Comisiones/core/static/images/app/icono.ico" type="image/x-icon" />-->
+<title>Blumon Pay</title>
+
+<style type="text/css">
+	.background_blumon_pay{
+    background-color: rgb(1, 1, 61)
+	}
+	
+	.navbar{
+	    border-bottom: 1px solid rgba(155, 155, 155, .5);
+	    height: 125px;
+	}
+	
+	.menu_options{
+	    border-right: 1px solid rgba(155, 155, 155, .5);
+	    height: 100%;
+	    display: flex;
+	    align-items: center;
+	}
+	
+	.logo_container{
+	    /* max-width: 30%; */
+	    max-width: 30%;
+	}
+	
+	.logo{
+	    width: 100%;
+	    max-width: 250px;
+	}
+</style>
+</head>
+<body class="background_blumon_pay text-white">
+
+
+	<div class="navbar w-100">
+	    <div class="logo_container d-inline-block w-25">
+	      <img th:src="@{/img/logo.png}" class="logo"/>
+	    </div>
+	
+	    <ul class="d-inline-block float-start w-50 menu_options d-flex justify-content-evenly">
+	      <li class="d-inline-block me-2">
+	        <a href="#" class="text-white text-decoration-none">Inicio</a>
+	      </li>
+	      <li class="d-inline-block me-2">
+	        <a href="#" class="text-white text-decoration-none">Servicios</a>
+	      </li>
+	      <li class="d-inline-block me-2">
+	        <a href="#" class="text-white text-decoration-none">Asóciate</a>
+	      </li>
+	      <li class="d-inline-block me-2">
+	        <a href="#" class="text-white text-decoration-none">APIs</a>
+	      </li>
+	      <li class="d-inline-block me-2">
+	        <a href="#" class="text-white text-decoration-none">Empresa</a>
+	      </li>
+	      <li class="d-inline-block me-2">
+	        <a href="#" class="text-white text-decoration-none">Noticias</a>
+	      </li>
+	      <li class="d-inline-block me-2">
+	        <a href="#" class="text-white text-decoration-none">Tarifas</a>
+	      </li>
+	      <li class="d-inline-block me-2">
+	        <a href="#" class="text-white text-decoration-none">Contacto</a>
+	      </li>
+	    </ul>
+	
+	    <div class="w-25 text-white">
+	   		<ul class="d-inline-block float-start w-50 d-flex justify-content-evenly">
+		      <li class="d-inline-block me-2">
+		        <a th:href="@{/users/getAll}" class="text-white text-decoration-none">Usuarios</a>
+		      </li>
+		      <li class="d-inline-block me-2">
+		        <a th:href="@{/terminals/getAll}" class="text-white text-decoration-none">Terminales</a>
+		      </li>
+	    	</ul>
+	    </div>
+
+  </div>
+	
+	<div layout:fragment="content" class="container">
+	    <p>Changing contents</p>
+	</div>
+	
+	<footer class="mt-5 p-5">
+		<div class="container">
+        </div>
+	</footer>
+	
+	<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/jquery-3.5.1.min.js}"></script>
+<!-- 	<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script> -->
+	<script type="text/javascript" th:src="@{/js/bootstrap-select.min.js}"></script>
+	<!--<script type="text/javascript" th:src="@{/js/confirmDialog.js}"></script>-->
+	<script type="text/javascript" th:src="@{/js/jquery.dataTables.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/dataTables.bootstrap5.min.js}"></script>
+	
+	<script type="text/javascript">
+	</script>
+	
+</body>
+</html>

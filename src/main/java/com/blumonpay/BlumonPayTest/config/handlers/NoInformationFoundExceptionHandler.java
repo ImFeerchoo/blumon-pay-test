@@ -13,14 +13,14 @@ import com.blumonpay.BlumonPayTest.exceptions.NoInformationFoundException;
 public class NoInformationFoundExceptionHandler {
 
 	@ExceptionHandler(NoInformationFoundException.class)
-	public ResponseEntity<Map<String, String>> noInformationFoundException(NoInformationFoundException e){
+	public String noInformationFoundException(NoInformationFoundException e){
 		
-		Map<String, String> response = Map.ofEntries(
-					Map.entry("error", e.getMessage())
-				);
-		
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-		
+//		Map<String, String> response = Map.ofEntries(
+//					Map.entry("error", e.getMessage())
+//				);
+//		
+//		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+		return "redirect:getAll";
 	}
 	
 }

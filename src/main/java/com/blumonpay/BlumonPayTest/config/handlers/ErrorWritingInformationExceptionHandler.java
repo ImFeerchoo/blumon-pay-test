@@ -13,14 +13,25 @@ import com.blumonpay.BlumonPayTest.exceptions.NoInformationFoundException;
 @ControllerAdvice
 public class ErrorWritingInformationExceptionHandler {
 
+//	@ExceptionHandler(ErrorWritingInformationException.class)
+//	public ResponseEntity<Map<String, String>> errorWritingInformationException(ErrorWritingInformationException e){
+//		
+//		Map<String, String> response = Map.ofEntries(
+//					Map.entry("error", e.getMessage())
+//				);
+//		
+//		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+//		
+//	}
 	@ExceptionHandler(ErrorWritingInformationException.class)
-	public ResponseEntity<Map<String, String>> errorWritingInformationException(ErrorWritingInformationException e){
+	public String errorWritingInformationException(ErrorWritingInformationException e){
 		
-		Map<String, String> response = Map.ofEntries(
-					Map.entry("error", e.getMessage())
-				);
+//		Map<String, String> response = Map.ofEntries(
+//				Map.entry("error", e.getMessage())
+//				);
 		
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+//		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+		return "redirect:getAll";
 		
 	}
 	

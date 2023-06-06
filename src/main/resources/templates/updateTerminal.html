@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout.html}">
+	<head></head>
+    
+    
+	<body>
+	    <div layout:fragment="content">
+	    
+	    	<h2 class="text-center">Actualizar Terminal</h2>
+	    
+	    	<form class="mt-5" th:object="${terminalToUpdate}" th:action="@{/terminals/update}" method="POST">
+	    	
+	    		<input type="hidden" th:field="*{idTerminal}"/>
+    
+			    <div class="row d-flex justify-content-evenly mb-5">
+			        <div class="col-3">
+			            <label class="text-white">Nombre*</label>
+			            <input type="text" class="form-control m-auto" placeholder="Nombre del titular" th:field="*{name}"/>
+			        </div>
+			        
+			        <div class="col-3">
+			            <label class="text-white">Apellido*</label>
+			            <input type="text" class="form-control" placeholder="Apellido del titular" th:field="*{lastName}"/>
+			        </div>
+			        
+			        <div class="col-3">
+			            <label class="text-white">Fecha de nacimiento*</label>
+			            <input type="date" class="form-control" th:field="*{bornDateStr}"/>
+			        </div>
+			    </div>
+			
+			    <div class="row d-flex justify-content-evenly mb-5">
+			        <div class="col-5">
+			            <label class="text-white">Número de tarjeta*</label>
+			            <input type="text" class="form-control m-auto" placeholder="Número de tarjeta" th:field="*{cardNumber}"/>
+			        </div>
+			        
+			        <div class="col-5">
+			            <label class="text-white" >Banco Emisor*</label>
+			            <input type="text" class="form-control" placeholder="Banco Emisor" th:field="*{bank}"/>
+			        </div>
+			    </div>
+			
+			    <div class="row">
+			        <div>
+			            <input type="submit" class="btn btn-primary float-end" value="Actualizar"/>
+			            <!--[disabled]="this.terminalOwnerInformation.invalid"-->
+			        </div>
+			    </div>
+			</form>
+	    
+	    </div>         				
+	
+	</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout.html}">
+	<head></head>
+    
+    
+	<body>
+	    <div layout:fragment="content">
+	    
+	    	<!-- Inicio - Current User-->
+	    		<div>
+		    		<h2 class="text-center">Usuario Actual</h2>
+		    		<div class="row">
+		    			<div class="col-4">
+		    				<label>ID</label>
+							<input type="text" class="form-control col-5" th:value="${session.userSession.idUser}" disabled/>		    			
+		    			</div>
+		    			
+		    			<div class="col-4">
+		    				<label>Usuario</label>
+							<input type="text" class="form-control" th:value="${session.userSession.username}" disabled/>		    			
+		    			</div>
+		    			
+		    			<div class="col-4">
+		    				<label>Contraseña</label>
+							<input type="text" class="form-control col-5" th:value="${session.userSession.password}" disabled/>		    			
+		    			</div>
+		    		</div>
+		    		
+		    		<div class="row">
+		    			<div class="col-4">
+		    				<label>Nombre</label>
+							<input type="text" class="form-control col-5" th:value="${session.userSession.name}" disabled/>		    			
+		    			</div>
+		    			
+		    			<div class="col-4">
+		    				<label>Apellido</label>
+							<input type="text" class="form-control" th:value="${session.userSession.lastName}" disabled/>		    			
+		    			</div>
+		    			
+		    			<div class="col-4">
+		    				<label>Fecha de creación</label>
+							<input type="text" class="form-control col-5" th:value="${session.userSession.creationDate}" disabled/>		    			
+		    			</div>
+		    		</div>
+	    		</div>
+	    	<!-- Final - Current User-->
+	    	
+	    	<hr/>
+	    
+	    	<!-- Inicio - Agregar una terminal-->
+	    	
+	    	<form class="mt-5" th:object="${user}" th:action="@{/users/save}" method="POST">
+	    	
+	    		<input type="hidden" th:field="*{idUser}"/>
+    
+			    <div class="row d-flex justify-content-evenly mb-5">
+			        <div class="col-3">
+			            <label class="text-white">Nombre*</label>
+			            <input type="text" class="form-control m-auto" placeholder="Nombre del titular" th:field="*{name}"/>
+			        </div>
+			        
+			        <div class="col-3">
+			            <label class="text-white">Apellido*</label>
+			            <input type="text" class="form-control" placeholder="Apellido del titular" th:field="*{lastName}"/>
+			        </div>
+			        
+			        <div class="col-3">
+			            <label class="text-white">Username*</label>
+			            <input type="text" class="form-control" placeholder="Apellido del titular" th:field="*{username}"/>
+			        </div>
+			    </div>
+			
+			    <div class="row d-flex justify-content-evenly mb-5">
+			        <div class="col-5">
+			            <label class="text-white">Password*</label>
+			            <input type="password" class="form-control m-auto" placeholder="Contraseña" th:field="*{password}"/>
+			        </div>
+			    </div>
+			
+			    <div class="row">
+			        <div>
+			            <input type="submit" class="btn btn-primary float-end" value="Guardar"/>
+			            <!--[disabled]="this.terminalOwnerInformation.invalid"-->
+			        </div>
+			    </div>
+			</form>
+
+	    	<!-- Final - Agregar una terminal-->
+	    	
+	    	
+	    	<!-- Inicio - Tabla de terminales-->
+	    
+			<table class="table table-hover table-dark mt-4">
+			    <thead>
+			        <tr>
+			            <th>ID</th>
+			            <th>Nombre</th>
+			            <th>Apellido</th>
+			            <th>Username</th>
+			            <th>Acción</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			    	<tr th:each="vUser: ${users}">
+			    		<td th:text="${vUser.idUser}"></td>
+			    		<td th:text="${vUser.name}"></td>
+			    		<td th:text="${vUser.lastName}"></td>
+			    		<td th:text="${vUser.username}"></td>
+			    		<td>
+			                <button type="button" class="btn btn-info me-2">
+			                	<a th:href="@{/users/update/{id}(id=${vUser.idUser})}">✒</a>
+			                </button>
+			                <button class="btn btn-danger">
+			                	<a th:href="@{/users/delete/{id}(id=${vUser.idUser})}">🗑</a>
+			                </button>
+			            </td>
+			    	</tr>
+			    </tbody>
+			</table>
+			
+	    	<!-- Final - Tabla de terminales -->
+			
+	    </div>         				
+	
+	</body>
+</html>

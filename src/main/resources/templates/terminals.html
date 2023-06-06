@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout.html}">
+	<head></head>
+    
+    
+	<body>
+	    <div layout:fragment="content">
+	    
+	    	<!-- Inicio -  Agregar una terminal-->
+	    	
+	    	<form class="mt-5" th:object="${terminal}" th:action="@{/terminals/save}" method="POST">
+	    	
+	    		<input type="hidden" th:field="*{idTerminal}"/>
+    
+			    <div class="row d-flex justify-content-evenly mb-5">
+			        <div class="col-3">
+			            <label class="text-white">Nombre*</label>
+			            <input type="text" class="form-control m-auto" placeholder="Nombre del titular" th:field="*{name}"/>
+			        </div>
+			        
+			        <div class="col-3">
+			            <label class="text-white">Apellido*</label>
+			            <input type="text" class="form-control" placeholder="Apellido del titular" th:field="*{lastName}"/>
+			        </div>
+			        
+			        <div class="col-3">
+			            <label class="text-white">Fecha de nacimiento*</label>
+			            <input type="date" class="form-control" th:field="*{bornDateStr}"/>
+			        </div>
+			    </div>
+			
+			    <div class="row d-flex justify-content-evenly mb-5">
+			        <div class="col-5">
+			            <label class="text-white">Número de tarjeta*</label>
+			            <input type="text" class="form-control m-auto" placeholder="Número de tarjeta" th:field="*{cardNumber}"/>
+			        </div>
+			        
+			        <div class="col-5">
+			            <label class="text-white" >Banco Emisor*</label>
+			            <input type="text" class="form-control" placeholder="Banco Emisor" th:field="*{bank}"/>
+			        </div>
+			    </div>
+			
+			    <div class="row">
+			        <div>
+			            <input type="submit" class="btn btn-primary float-end" value="Guardar"/>
+			            <!--[disabled]="this.terminalOwnerInformation.invalid"-->
+			        </div>
+			    </div>
+			</form>
+
+	    	<!-- Final -  Agregar una terminal-->
+	    	
+	    	
+	    	<!-- Inicio - Tabla de terminales-->
+	    
+			<table class="table table-hover table-dark mt-4">
+			    <thead>
+			        <tr>
+			            <th>Nombre</th>
+			            <th>Apellido</th>
+			            <th>Fecha de nacimiento</th>
+			            <th>Número de tarjeta</th>
+			            <th>Banco</th>
+			            <th>Acción</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			    	<tr th:each="terminal: ${terminals}">
+			    		<td th:text="${terminal.name}"></td>
+			    		<td th:text="${terminal.lastName}"></td>
+			    		<td th:text="${terminal.bornDate}"></td>
+			    		<td th:text="${terminal.cardNumber}"></td>
+			    		<td th:text="${terminal.bank}"></td>
+			    		<td>
+			                <button type="button" data-bs-toggle="modal" data-bs-target="#updateTerminal" class="btn btn-info me-2">
+			                	<a th:href="@{/terminals/update/{id}(id=${terminal.idTerminal})}">✒</a>
+			                </button>
+			                <button class="btn btn-danger">
+			                	<a th:href="@{/terminals/delete/{id}(id=${terminal.idTerminal})}">🗑</a>
+			                </button>
+			            </td>
+			    	</tr>
+			    </tbody>
+			</table>
+			
+	    	<!-- Final - Tabla de terminales -->
+			
+	    </div>         				
+	
+	</body>
+</html>

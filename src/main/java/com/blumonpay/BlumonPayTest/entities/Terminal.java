@@ -19,6 +19,7 @@ public class Terminal {
 	private String name;
 	private String lastName;
 	private LocalDate bornDate;
+	private String bornDateStr;
 	private String cardNumber;
 	private String bank;
 	public Long getIdTerminal() {
@@ -44,6 +45,13 @@ public class Terminal {
 	}
 	public void setBornDate(LocalDate bornDate) {
 		this.bornDate = bornDate;
+	}
+	
+	public String getBornDateStr() {
+		return bornDateStr;
+	}
+	public void setBornDateStr(String bornDateStr) {
+		this.bornDateStr = bornDateStr;
 	}
 	public String getCardNumber() {
 		return cardNumber;
